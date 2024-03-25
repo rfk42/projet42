@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_prints.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/20 23:57:35 by rhamini           #+#    #+#             */
-/*   Updated: 2023/11/23 17:36:06 by rhamini          ###   ########.fr       */
+/*   Created: 2023/12/04 15:48:33 by rhamini           #+#    #+#             */
+/*   Updated: 2024/03/21 10:32:18 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list	*ft_lstnew(void *content)
-{
-	t_list	*new;
+int	ft_prints(char *s)
+{	
+	int	i;
 
-	new = (t_list *)malloc(sizeof(t_list));
-	if (!new)
-		return (NULL);
-	new->content = content;
-	new->next = NULL;
-	return (new);
+	i = 0;
+	if (s == NULL)
+	{
+		ft_putstr_fd("(null)", 1);
+		return (6);
+	}
+	while (s[i])
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+	return (i);
 }

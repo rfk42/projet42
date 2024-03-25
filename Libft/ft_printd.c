@@ -1,22 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstiter.c                                       :+:      :+:    :+:   */
+/*   ft_printd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/23 16:37:53 by rhamini           #+#    #+#             */
-/*   Updated: 2023/11/23 16:38:01 by rhamini          ###   ########.fr       */
+/*   Created: 2023/12/04 15:18:15 by rhamini           #+#    #+#             */
+/*   Updated: 2024/03/21 10:31:59 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int	ft_printd(int n)
 {
-	while (lst && f)
+	long			nb;
+	unsigned int	i;
+
+	nb = (long)n;
+	i = 1;
+	if (n < 0)
 	{
-		f(lst->content);
-		lst = lst->next;
+		nb = -n;
+		i++;
 	}
+	while (nb > 9)
+	{
+		nb = nb / 10;
+		i++;
+	}
+	ft_putnbr_fd(n, 1);
+	if (n == -2147483648)
+		return (11);
+	return (i);
 }

@@ -6,11 +6,11 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:35:46 by rhamini           #+#    #+#             */
-/*   Updated: 2024/03/20 14:41:40 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/03/21 11:14:52 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*get_next_line(int fd)
 {
@@ -146,7 +146,7 @@ void	clean_tmp(t_list **tmp)
 	if (last->value && last->value[i] == '\n')
 		i++;
 	clean_node->value = malloc(sizeof(char)
-			* ((ft_strlen(last->value) - i) + 1));
+			* ((ft_strlengnl(last->value) - i) + 1));
 	if (clean_node->value == NULL)
 		return ;
 	j = 0;
@@ -157,7 +157,7 @@ void	clean_tmp(t_list **tmp)
 	*tmp = clean_node;
 }
 
-#include <fcntl.h>
+/*#include <fcntl.h>
 
 int	main(void)
 {
@@ -175,4 +175,4 @@ int	main(void)
 		free(line);
 	}
 	return (0);
-}
+}*/

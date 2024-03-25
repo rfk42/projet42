@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:40:41 by rhamini           #+#    #+#             */
-/*   Updated: 2024/03/21 10:39:31 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/03/21 11:14:41 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ void	free_tmp(t_list *tmp)
 	}
 }
 
-int	ft_strlen(char *str)
+int	ft_strlengnl(char *str)
 {
 	int	i;
 
