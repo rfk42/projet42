@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 10:01:15 by rhamini           #+#    #+#             */
-/*   Updated: 2024/03/25 15:11:34 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/03/27 15:05:24 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,23 +51,57 @@ void	ft_lstiter(t_list *lst)
 	}
 }
 
+int	check_input(char **av)
+{
+	int i;
+	int j;
 
-int main (void)
+	i = 1;
+	while (av[i])
+	{
+		j = 0;
+		while (av[i][j])
+		{
+			if (av[i][j] >= '0' )
+			j++;
+		}
+		i++;
+	}
+	return 1;
+}
+
+t_list	*ft_fill(char **av)
 {
 	t_list *a;
+	int	i;
 
-	a = ft_lstnew(213);
-	ft_lstadd_back(a, 34);
-	ft_lstadd_back(a, 33);
-	ft_lstadd_back(a, 36);
-	ft_lstadd_back(a, 3434);
-	ft_lstadd_back(a, 368);	
-	ft_lstadd_back(a, 434);
+	i = 1;
+	a = ft_lstnew(atoi(av[i]));
+	i++;
+	while (av[i])
+	{
+		ft_lstadd_back(a, atoi(av[i]));
+		i++;
+	}
+	return a;
+}
 
-
+int main (int ac, char **av)
+{
+	t_list *a;
+	
+	check_input(av);	
+	a = ft_fill(av);
+	
+	check_input(a);
+	
 	ft_lstiter(a);
 
 	printf("\n\n");
-	reverse_rotate(&a);
+	swap(&a);
+
+	printf("\n\n");
 	ft_lstiter(a);
+	(void)ac;
+
 }

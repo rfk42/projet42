@@ -1,36 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   swap.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/19 10:01:42 by rhamini           #+#    #+#             */
-/*   Updated: 2024/03/25 15:12:50 by rhamini          ###   ########.fr       */
+/*   Created: 2024/03/19 10:01:25 by rhamini           #+#    #+#             */
+/*   Updated: 2024/03/27 13:51:44 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-#define PUSH_SWAP_H
+#include "../push_swap.h"
 
-#include <stdlib.h>
-#include <stdio.h>
-
-typedef struct s_list
+void	swap(t_list **a)
 {
-	int			value;
-	struct s_list	*next;
-}					t_list;
+	// t_list *tmp;
+	// t_list *tmpb;
+	// t_list *tmpa;
 
 
-//----- utils
+	// tmp = (*a)->next->next;
+	
+	// tmpb = (*a)->next;
+	// tmpa = (*a);
+	// (*a) = tmpb;
+	// tmpb->next = tmpa;
+	// tmpa->next = tmp;
 
-t_list	*ft_lstlast(t_list *lst);
+	t_list *tmp;
 
-
-//-----------opertatotd
-
-void	rotate(t_list **a);
-void	reverse_rotate(t_list **a);
-
-#endif
+	tmp = (*a)->next;
+	(*a)->next = tmp->next;
+	tmp->next = (*a);
+	(*a) = tmp;
+}

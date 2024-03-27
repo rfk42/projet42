@@ -6,45 +6,51 @@
 #    By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/21 11:36:57 by rhamini           #+#    #+#              #
-#    Updated: 2024/03/21 11:37:13 by rhamini          ###   ########.fr        #
+#    Updated: 2024/03/27 13:53:28 by rhamini          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CC = cc
+NAME := push_swap
 
-NAME = push_swap.a
+SRC_DIR := src
 
-CFLAGS = -Werror -Wextra -Wall
+OBJ_DIR := obj
 
-LIBNAME = libft.a
-LIBPATH = ./Libft
+SRCS := main.c \
+    	operator/rotate.c \
+    	operator/push.c \
+    	operator/swap.c \
+    	operator/reverse_rotate.c \
 
-FILES = 	ft_printf.c \
-			ft_prints.c \
-			ft_printui.c \
-			ft_printd.c \
-			ft_printchar.c \
-			ft_printptr.c \
-			ft_printhex.c \
+SRCS := $(SRCS:%=$(SRC_DIR)/%)
 
-OBJS = ${FILES:.c=.o}
+OBJS := $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
+
+CC          := cc
+CFLAGS      := -Wall -Wextra -Werror
+
+RM          := rm -f
+MAKEFLAGS   += --no-print-directory
+DIR_DUP     = mkdir -p $(@D)
 
 all: $(NAME)
 
-makelibft:
-	@make -C $(LIBPATH)
-	@cp $(LIBPATH)/$(LIBNAME) ./
-	@mv $(LIBNAME) $(NAME)
+$(NAME): $(OBJS)
+	$(CC) $(OBJS) -o $(NAME)
+	$(info CREATED $(NAME))
 
-${NAME}: makelibft ${OBJS}
-		ar rcs ${NAME} ${OBJS}
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
+	$(DIR_DUP)
+	$(CC) $(CFLAGS) -c -o $@ $<
+	$(info CREATED $@)
 
 clean:
-	@rm -f $(OBJS)
-	@cd $(LIBPATH) && make clean
-	
+	$(RM) $(OBJS)
+
 fclean: clean
-	@rm -f $(NAME)
-	@cd $(LIBPATH) && make fclean
-	
-re: fclean all
+	$(RM) $(NAME)
+
+re:
+	$(MAKE) fclean
+	$(MAKE) all
+

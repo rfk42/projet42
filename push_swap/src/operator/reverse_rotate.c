@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push.c                                             :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/19 10:01:19 by rhamini           #+#    #+#             */
-/*   Updated: 2024/03/25 14:36:28 by rhamini          ###   ########.fr       */
+/*   Created: 2024/03/19 10:01:12 by rhamini           #+#    #+#             */
+/*   Updated: 2024/03/27 13:51:32 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-void push()
-{}
+void	reverse_rotate(t_list **a)
+{
+	t_list *head;
+	t_list *last;
+	t_list *b_last;
 
-void pa()
-{}
 
-void pb()
-{}
+	head = *a;
+	last = ft_lstlast(*a);
+	while ((*a)->next != NULL)
+	{
+		b_last = (*a);
+		(*a) = (*a)->next;
+	}
+	last->next = (head);
+	b_last->next = NULL;
+}
