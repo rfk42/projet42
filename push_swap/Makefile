@@ -6,7 +6,7 @@
 #    By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/21 11:36:57 by rhamini           #+#    #+#              #
-#    Updated: 2024/03/27 13:53:28 by rhamini          ###   ########.fr        #
+#    Updated: 2024/03/28 14:15:12 by rhamini          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,10 +17,9 @@ SRC_DIR := src
 OBJ_DIR := obj
 
 SRCS := main.c \
-    	operator/rotate.c \
-    	operator/push.c \
-    	operator/swap.c \
-    	operator/reverse_rotate.c \
+    	operator.c \
+    	utils.c \
+		lst_utils.c \
 
 SRCS := $(SRCS:%=$(SRC_DIR)/%)
 

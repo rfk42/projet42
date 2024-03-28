@@ -1,30 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/06 01:34:17 by rhamini           #+#    #+#             */
-/*   Updated: 2023/11/23 13:13:55 by rhamini          ###   ########.fr       */
+/*   Created: 2024/03/28 14:12:44 by rhamini           #+#    #+#             */
+/*   Updated: 2024/03/28 14:13:02 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "push_swap.h"
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+int	ft_atoi(const char *str)
 {
-	size_t	i;
+	int	i;
+	int	signe;
+	int	nbr;
 
 	i = 0;
-	while (((s1[i] != '\0' || s2[i] != '\0')) && (i < n))
+	signe = 1;
+	nbr = 0;
+	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
+		i++;
+	if (str[i] == '-')
 	{
-		if (s1[i] != s2[i])
-		{
-			return ((*(unsigned char *)(s1 + i)) - (*(unsigned char *)
-			(s2 + i)));
-		}
+		signe = -1;
 		i++;
 	}
-	return (0);
+	else if (str[i] == '+')
+		i++;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= '0' && str[i] <= '9')
+			nbr = nbr * 10 + str[i] - '0';
+		else
+			break ;
+		i++;
+	}
+	return (nbr * signe);
 }
