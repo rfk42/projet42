@@ -1,56 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/28 14:12:44 by rhamini           #+#    #+#             */
-/*   Updated: 2024/04/04 10:51:29 by rhamini          ###   ########.fr       */
+/*   Created: 2024/04/04 14:32:13 by rhamini           #+#    #+#             */
+/*   Updated: 2024/04/04 15:26:15 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_putstr_fd(char *s)
-{
-	unsigned int	i;
-
-	i = 0;
-	if (s == 0)
-		return ;
-	while (s[i])
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-}
-
-long	ft_atoi(const char *str)
+void	lst_index(t_list *lst)
 {
 	int	i;
-	int	signe;
-	long	nbr;
 
 	i = 0;
-	signe = 1;
-	nbr = 0;
-	while (str[i] == ' ' || (str[i] >= '\t' && str[i] <= '\r'))
-		i++;
-	if (str[i] == '-')
+	while (lst->next)
 	{
-		signe = -1;
+		lst->index = i;
+		lst = lst->next;
 		i++;
 	}
-	else if (str[i] == '+')
-		i++;
-	while (str[i] != '\0')
-	{
-		if (str[i] >= '0' && str[i] <= '9')
-			nbr = nbr * 10 + str[i] - '0';
-		else
-			break ;
-		i++;
-	}
-	return (nbr * signe);
+	lst->index = i;
 }
+
+void	lst_target(t_list *lst, t_list)
+{
+	int	i;
+
+	i = 0;
+	while (!lst->value)
+	{
+		lst->target = lst->value;
+		lst = lst->next;
+		i++;
+	}
+}
+
+
+/*fct qui trouve les index
+fct qui trouve une cible
+fct pour le cout
+*/

@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:05:26 by rhamini           #+#    #+#             */
-/*   Updated: 2024/03/28 14:10:27 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/04/04 15:19:46 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,12 @@ void	ft_lstiter(t_list *lst)
 	while (lst)
 	{
 		printf("value = %d\n", lst->value);
-		printf("addr  = %p\n", lst);
-		printf("addr next = %p\n", lst->next);
+		// printf("addr  = %p\n", lst);
+		// printf("addr next = %p\n", lst->next);
+		// printf("\n");
+		printf("target = %d\n", lst->index);
+		printf("index = %d\n", lst->index);
+		printf("\n");
 		printf("\n");
 		lst = lst->next;
 	}

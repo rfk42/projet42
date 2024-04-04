@@ -1,44 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   sort.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/03/19 10:01:15 by rhamini           #+#    #+#             */
-/*   Updated: 2024/04/04 14:53:00 by rhamini          ###   ########.fr       */
+/*   Created: 2024/04/04 14:25:01 by rhamini           #+#    #+#             */
+/*   Updated: 2024/04/04 14:49:39 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_fill(char **av)
-{
-	t_list	*a;
-	int		i;
-
-	i = 1;
-	a = ft_lstnew(ft_atoi(av[i]));
-	i++;
-	while (av[i])
-	{
-		ft_lstadd_back(a, ft_atoi(av[i]));
-		i++;
-	}
-	return (a);
-}
-
-int	main(int ac, char **av)
-{
-	t_list	*a;
-//	t_list	*b;
-
-//	b = NULL;
-	if (!check_input(ac, av + 1))
-		a = ft_fill(av);
-//	if (a != NULL)
-//		ft_sort(a, b);
-	lst_index(a);
-	ft_lstiter(a);
-	(void)ac;
-}
+/*
+fct qui trouve les index
+fct qui trouve une cible
+fct pour le cout
+*/
