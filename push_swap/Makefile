@@ -6,7 +6,7 @@
 #    By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/21 11:36:57 by rhamini           #+#    #+#              #
-#    Updated: 2024/03/28 14:15:12 by rhamini          ###   ########.fr        #
+#    Updated: 2024/03/30 15:42:28 by rhamini          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRCS := main.c \
     	operator.c \
     	utils.c \
 		lst_utils.c \
+		check.c \
 
 SRCS := $(SRCS:%=$(SRC_DIR)/%)
 

@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 10:01:42 by rhamini           #+#    #+#             */
-/*   Updated: 2024/03/28 14:17:13 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/03/30 16:57:39 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <stdio.h>
+# include <unistd.h>
 
 typedef struct s_list
 {
@@ -29,8 +30,10 @@ void	ft_lstadd_back(t_list *alst, int b);
 void	ft_lstiter(t_list *lst);
 t_list	*ft_fill(char **av);
 int		ft_atoi(const char *str);
+void	ft_putstr_fd(char *s);
+int		check_input(int ac, char **av);
 
-//-----------opertatotd
+//-----------operator
 
 void	rotate(t_list **a);
 void	reverse_rotate(t_list **a);

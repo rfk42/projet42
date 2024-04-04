@@ -6,11 +6,25 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:12:44 by rhamini           #+#    #+#             */
-/*   Updated: 2024/03/28 14:13:02 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/03/30 17:45:35 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	ft_putstr_fd(char *s)
+{
+	unsigned int	i;
+
+	i = 0;
+	if (s == 0)
+		return ;
+	while (s[i])
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+}
 
 int	ft_atoi(const char *str)
 {
