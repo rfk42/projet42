@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:12:44 by rhamini           #+#    #+#             */
-/*   Updated: 2024/04/04 10:51:29 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/04/09 01:25:29 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	ft_putstr_fd(char *s)
 
 long	ft_atoi(const char *str)
 {
-	int	i;
-	int	signe;
+	int		i;
+	int		signe;
 	long	nbr;
 
 	i = 0;

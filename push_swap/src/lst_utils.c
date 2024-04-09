@@ -6,11 +6,28 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:05:26 by rhamini           #+#    #+#             */
-/*   Updated: 2024/04/04 15:19:46 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/04/09 04:35:40 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	lst_len(t_list *lst)
+{
+	int		i;
+	t_list	*tmp_lst;
+
+	i = 0;
+	tmp_lst = lst;
+	while (lst)
+	{
+		i++;
+		lst = lst->next;
+		if (lst == tmp_lst)
+			return (i);
+	}
+	return (i);
+}
 
 t_list	*ft_lstnew(int value)
 {
@@ -31,12 +48,12 @@ t_list	*ft_lstlast(t_list *lst)
 	return (lst);
 }
 
-void	ft_lstadd_back(t_list *alst, int b)
+void	ft_lstadd_back(t_list *lst, int b)
 {
-	if (!alst)
+	if (!lst)
 		return ;
-	if (alst)
-		ft_lstlast(alst)->next = ft_lstnew(b);
+	if (lst)
+		ft_lstlast(lst)->next = ft_lstnew(b);
 }
 
 void	ft_lstiter(t_list *lst)
@@ -47,7 +64,8 @@ void	ft_lstiter(t_list *lst)
 		// printf("addr  = %p\n", lst);
 		// printf("addr next = %p\n", lst->next);
 		// printf("\n");
-		printf("target = %d\n", lst->index);
+		printf("target = %d\n", lst->target);
+		printf("cout = %d\n", lst->cout);
 		printf("index = %d\n", lst->index);
 		printf("\n");
 		printf("\n");

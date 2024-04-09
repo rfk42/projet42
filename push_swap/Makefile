@@ -6,7 +6,7 @@
 #    By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/21 11:36:57 by rhamini           #+#    #+#              #
-#    Updated: 2024/04/04 14:48:52 by rhamini          ###   ########.fr        #
+#    Updated: 2024/04/09 06:26:43 by rhamini          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,6 +22,8 @@ SRCS := main.c \
 		lst_utils.c \
 		check.c \
 		sort_utils.c \
+		sort_utils_2.c \
+		sort.c \
 
 SRCS := $(SRCS:%=$(SRC_DIR)/%)
 

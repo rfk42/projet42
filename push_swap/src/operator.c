@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:07:00 by rhamini           #+#    #+#             */
-/*   Updated: 2024/03/28 14:08:08 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/04/09 09:21:02 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,14 @@ void	rotate(t_list **a)
 	t_list	*head;
 	t_list	*last;
 
-	last = ft_lstlast(*a);
-	head = *a;
-	*a = (*a)->next;
-	last->next = head;
-	head->next = NULL;
+	if (*a != NULL && (*a)->next != NULL)
+	{	
+		last = ft_lstlast(*a);
+		head = *a;
+		*a = (*a)->next;
+		last->next = head;
+		head->next = NULL;
+	}
 }
 
 void	reverse_rotate(t_list **a)
@@ -30,35 +33,43 @@ void	reverse_rotate(t_list **a)
 	t_list	*last;
 	t_list	*b_last;
 
-	head = *a;
-	last = ft_lstlast(*a);
-	while ((*a)->next != NULL)
-	{
-		b_last = (*a);
-		(*a) = (*a)->next;
+	if (*a != NULL && (*a)->next != NULL)
+    {
+		head = *a;
+		last = ft_lstlast(*a);
+		while ((*a)->next != NULL)
+		{
+			b_last = (*a);
+			(*a) = (*a)->next;
+		}
+		last->next = (head);
+		b_last->next = NULL;
 	}
-	last->next = (head);
-	b_last->next = NULL;
 }
 
 void	push(t_list **a, t_list **b)
 {
 	t_list	*tmp;
 
-	tmp = (*a)->next;
-	(*a)->next = (*b);
-	(*b) = (*a);
-	(*a) = tmp;
+	if (*a != NULL && *b != NULL)
+	{
+		tmp = (*a)->next;
+		(*a)->next = (*b);
+		(*b) = (*a);
+		(*a) = tmp;
+	}
 }
 
 void	swap(t_list **a)
 {
 	t_list	*tmp;
-
-	tmp = (*a)->next;
-	(*a)->next = tmp->next;
-	tmp->next = (*a);
-	(*a) = tmp;
+	if (*a != NULL && (*a)->next != NULL)
+	{
+		tmp = (*a)->next;
+		(*a)->next = tmp->next;
+		tmp->next = (*a);
+		(*a) = tmp;
+	}
 }
 
 /*t_list *tmp;
