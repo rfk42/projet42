@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 14:56:20 by rhamini           #+#    #+#             */
-/*   Updated: 2024/04/17 03:12:45 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/04/22 19:10:44 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,16 @@ int	support_long(char **av)
 {
 	long	n;
 	int		i;
+	int		j;
 
 	i = 0;
 	while (av[i])
 	{
+		j = 0;
+		while (av[i][j])
+			j++;
+		if (j > 11)
+			return 0;
 		n = ft_atoi(av[i]);
 		if (n < -2147483648 || n > 2147483647)
 			return (0);
@@ -79,12 +85,12 @@ int	check_double(char **av)
 int	check_input(int ac, char **av)
 {
 	if (ac < 2)
-		return (ft_putstr(""), 1);
+		return (ft_putstr_error(""), 1);
 	if (!check_nb(av))
-		return (ft_putstr("Error\nArgument invalide"), 1);
+		return (ft_putstr_error("Error\n"), 1);
 	if (!check_double(av))
-		return (ft_putstr("Error\nDoublons"), 1);
+		return (ft_putstr_error("Error\n"), 1);
 	if (!support_long(av))
-		return (ft_putstr("Error\nArgument trop grand"), 1);
+		return (ft_putstr_error("Error\n"), 1);
 	return (0);
 }

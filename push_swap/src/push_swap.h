@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 10:01:42 by rhamini           #+#    #+#             */
-/*   Updated: 2024/04/22 15:20:51 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/04/22 18:33:58 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,7 @@ void	ft_lstiterb(t_list *lst);
 t_list	*ft_fill(char **av);
 long	ft_atoi(const char *str);
 void	ft_putstr(char *s);
+void	ft_putstr_error(char *s);
 int		check_input(int ac, char **av);
 void	lst_index(t_list *lst);
 void	lst_target(t_list **lst, t_list **lst2);
