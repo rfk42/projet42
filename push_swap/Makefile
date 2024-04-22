@@ -6,7 +6,7 @@
 #    By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/03/21 11:36:57 by rhamini           #+#    #+#              #
-#    Updated: 2024/04/09 06:26:43 by rhamini          ###   ########.fr        #
+#    Updated: 2024/04/17 18:39:45 by rhamini          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,6 +18,7 @@ OBJ_DIR := obj
 
 SRCS := main.c \
     	operator.c \
+    	operator_2.c \
     	utils.c \
 		lst_utils.c \
 		check.c \

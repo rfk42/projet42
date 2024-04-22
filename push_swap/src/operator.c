@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:07:00 by rhamini           #+#    #+#             */
-/*   Updated: 2024/04/09 09:21:02 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/04/17 03:13:01 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	rotate(t_list **a)
 	t_list	*last;
 
 	if (*a != NULL && (*a)->next != NULL)
-	{	
+	{
 		last = ft_lstlast(*a);
 		head = *a;
 		*a = (*a)->next;
@@ -34,7 +34,7 @@ void	reverse_rotate(t_list **a)
 	t_list	*b_last;
 
 	if (*a != NULL && (*a)->next != NULL)
-    {
+	{
 		head = *a;
 		last = ft_lstlast(*a);
 		while ((*a)->next != NULL)
@@ -51,7 +51,7 @@ void	push(t_list **a, t_list **b)
 {
 	t_list	*tmp;
 
-	if (*a != NULL && *b != NULL)
+	if (*a != NULL)
 	{
 		tmp = (*a)->next;
 		(*a)->next = (*b);
@@ -63,6 +63,7 @@ void	push(t_list **a, t_list **b)
 void	swap(t_list **a)
 {
 	t_list	*tmp;
+
 	if (*a != NULL && (*a)->next != NULL)
 	{
 		tmp = (*a)->next;
@@ -70,6 +71,12 @@ void	swap(t_list **a)
 		tmp->next = (*a);
 		(*a) = tmp;
 	}
+}
+
+void	ra(t_list **lst)
+{
+	rotate(lst);
+	ft_putstr("ra\n");
 }
 
 /*t_list *tmp;

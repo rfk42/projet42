@@ -6,13 +6,13 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:12:44 by rhamini           #+#    #+#             */
-/*   Updated: 2024/04/09 01:25:29 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/04/17 03:47:36 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_putstr_fd(char *s)
+void	ft_putstr(char *s)
 {
 	unsigned int	i;
 
@@ -53,4 +53,42 @@ long	ft_atoi(const char *str)
 		i++;
 	}
 	return (nbr * signe);
+}
+
+void	ft_lstdelone(t_list *lst)
+{
+	if (!lst)
+		return ;
+	if (lst)
+		free(lst);
+}
+
+void	free_lst(t_list **lst)
+{
+	t_list	*tmp;
+
+	if (!lst || !*lst)
+		return ;
+	while (*lst)
+	{
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst);
+		*lst = tmp;
+	}
+}
+
+void	free_tab(char **av)
+{
+	int	i;
+
+	i = 0;
+	if (!av || !(*av))
+		return ;
+	while (av[i])
+	{
+		free(av[i]);
+		i++;
+	}
+	free(av - 1);
+	return ;
 }

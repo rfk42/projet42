@@ -6,13 +6,13 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:32:13 by rhamini           #+#    #+#             */
-/*   Updated: 2024/04/09 08:32:58 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/04/16 17:09:10 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/*void	lst_target(t_list **lst, t_list **lst2)
+void	lst_target(t_list **lst, t_list **lst2)
 {
 	long	current_target;
 	t_list	*tmp_lst;
@@ -29,17 +29,17 @@
 				&& tmp_lst->value < current_target)
 			{
 				current_target = tmp_lst->value;
-				tmp_lst2->target = current_target;
+				tmp_lst2->target = tmp_lst;
 			}
 			tmp_lst = tmp_lst->next;
 		}
 		if (current_target == 9223372036854775807)
-			tmp_lst2->target = find_kawainee(lst);
+			tmp_lst2->target = find_kawainee(*lst);
 		tmp_lst2 = tmp_lst2->next;
 	}
-}*/
+}
 
-/*void	lst_cost(t_list **lst, t_list **lst2)
+void	lst_cost(t_list **lst, t_list **lst2)
 {
 	t_list	*tmp;
 	int		len1;
@@ -64,20 +64,28 @@
 			tmp->cout = tmp->index + tmp->target->index;
 		tmp = tmp->next;
 	}
-}*/
+}
 
 t_list	*get_hess(t_list *lst)
 {
+	t_list	*tmp;
 	t_list	*hess;
-	t_list	*tmp_lst;
 
-	tmp_lst = lst;
+	tmp = lst;
 	hess = NULL;
-	while (tmp_lst)
+	while (tmp)
 	{
-		if (hess == NULL || tmp_lst->cout <= hess->cout)
-			hess = tmp_lst;
-		tmp_lst = tmp_lst->next;
+		if (hess == NULL || tmp->cout <= hess->cout)
+			hess = tmp;
+		tmp = tmp->next;
 	}
 	return (hess);
+}
+
+void	setup(t_list **a, t_list **b)
+{
+	lst_index(*a);
+	lst_index(*b);
+	lst_target(a, b);
+	lst_cost(b, a);
 }

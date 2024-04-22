@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:05:26 by rhamini           #+#    #+#             */
-/*   Updated: 2024/04/09 04:35:40 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/04/22 15:20:23 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,15 +60,26 @@ void	ft_lstiter(t_list *lst)
 {
 	while (lst)
 	{
+		printf("%d\n", lst->value);
+		printf("\n");
+		lst = lst->next;
+	}
+}
+
+/*void	ft_lstiterb(t_list *lst)
+{
+	while (lst)
+	{
 		printf("value = %d\n", lst->value);
 		// printf("addr  = %p\n", lst);
 		// printf("addr next = %p\n", lst->next);
 		// printf("\n");
-		printf("target = %d\n", lst->target);
-		printf("cout = %d\n", lst->cout);
+		printf("target = %d\n", lst->target->value);
 		printf("index = %d\n", lst->index);
+		printf("cout = %d\n", lst->cout);
 		printf("\n");
 		printf("\n");
 		lst = lst->next;
 	}
 }
+*/
