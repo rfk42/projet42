@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/19 10:01:15 by rhamini           #+#    #+#             */
-/*   Updated: 2024/04/22 15:19:51 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/04/22 18:03:07 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,13 @@
 
 int	is_sorted(t_list *a)
 {
-	t_list	*tmp;
-	t_list	*first;
-
 	if (!a)
 		return (1);
-	first = a;
-	tmp = a->next;
-	while (tmp)
+	while (a->next)
 	{
-		if (a->value > tmp->value)
+		if (a->value > a->next->value)
 			return (0);
-		tmp = tmp->next;
-		if (tmp == first)
-			break ;
+		a = a->next;
 	}
 	return (1);
 }
@@ -59,6 +52,5 @@ int	main(int ac, char **av)
 		a = ft_fill(av);
 	if (a != NULL && (!(is_sorted(a))))
 		ft_sort(&a, &b, ac);
-	ft_lstiter(a);
 	free_lst(&a);
 }
