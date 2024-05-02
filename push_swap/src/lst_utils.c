@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:05:26 by rhamini           #+#    #+#             */
-/*   Updated: 2024/04/22 18:03:44 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/04/24 18:20:50 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,18 @@ void	ft_lstadd_back(t_list *lst, int b)
 		return ;
 	if (lst)
 		ft_lstlast(lst)->next = ft_lstnew(b);
+}
+
+void	ft_putstr_error(char *s)
+{
+	unsigned int	i;
+
+	i = 0;
+	if (s == 0)
+		return ;
+	while (s[i])
+		i++;
+	write(2, s, i);
 }
 
 /*void	ft_lstiter(t_list *lst)

@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:12:44 by rhamini           #+#    #+#             */
-/*   Updated: 2024/04/22 18:40:07 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/04/24 18:20:41 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,18 +22,6 @@ void	ft_putstr(char *s)
 	while (s[i])
 		i++;
 	write(1, s, i);
-}
-
-void	ft_putstr_error(char *s)
-{
-	unsigned int	i;
-
-	i = 0;
-	if (s == 0)
-		return ;
-	while (s[i])
-		i++;
-	write(2, s, i);
 }
 
 long	ft_atoi(const char *str)

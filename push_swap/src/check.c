@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/30 14:56:20 by rhamini           #+#    #+#             */
-/*   Updated: 2024/04/22 19:10:44 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/04/24 18:21:14 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	support_long(char **av)
 		while (av[i][j])
 			j++;
 		if (j > 11)
-			return 0;
+			return (0);
 		n = ft_atoi(av[i]);
 		if (n < -2147483648 || n > 2147483647)
 			return (0);
