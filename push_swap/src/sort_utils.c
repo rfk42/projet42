@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:32:13 by rhamini           #+#    #+#             */
-/*   Updated: 2024/05/02 12:27:23 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/05/07 14:41:11 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,35 @@ void	lst_target(t_list **lst, t_list **lst2)
 	}
 }
 
+void	lst_cost_utils(t_list *tmp, int len1, int len2, int mid1)
+{
+	int	mid2;
+
+	mid2 = len2 / 2;
+	while (tmp)
+	{
+		if (tmp->index > mid1 && tmp->target->index > mid2)
+		{
+			if ((len1 - tmp->index) > (len2 - tmp->target->index))
+				tmp->cout = len1 - tmp->index;
+			else
+				tmp->cout = len2 - tmp->target->index;
+		}
+		else if (tmp->index <= mid1 && tmp->target->index > mid2)
+			tmp->cout = tmp->index + (len2 - tmp->target->index);
+		else if (tmp->index > mid1 && tmp->target->index <= mid2)
+			tmp->cout = (len1 - tmp->index) + tmp->target->index;
+		else if (tmp->index <= mid1 && tmp->target->index <= mid2)
+		{
+			if (tmp->index > tmp->target->index)
+				tmp->cout = tmp->index;
+			else
+				tmp->cout = tmp->target->index;
+		}
+		tmp = tmp->next;
+	}
+}
+
 void	lst_cost(t_list **lst, t_list **lst2)
 {
 	t_list	*tmp;
@@ -52,18 +81,7 @@ void	lst_cost(t_list **lst, t_list **lst2)
 	len2 = lst_len(*lst2);
 	mid1 = len1 / 2;
 	mid2 = len2 / 2;
-	while (tmp)
-	{
-		if (tmp->index >= mid1 && tmp->target->index >= mid2)
-			tmp->cout = (len1 - tmp->index) + (len2 - tmp->target->index);
-		else if (tmp->index <= mid1 && tmp->target->index >= mid2)
-			tmp->cout = tmp->index + (len2 - tmp->target->index);
-		else if (tmp->index >= mid1 && tmp->target->index <= mid2)
-			tmp->cout = (len1 - tmp->index) + tmp->target->index;
-		else
-			tmp->cout = tmp->index + tmp->target->index;
-		tmp = tmp->next;
-	}
+	lst_cost_utils(tmp, len1, len2, mid1);
 }
 
 t_list	*get_hess(t_list *lst)

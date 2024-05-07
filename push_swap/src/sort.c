@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:25:01 by rhamini           #+#    #+#             */
-/*   Updated: 2024/05/02 12:40:07 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/05/07 16:01:34 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,11 +30,18 @@ void	kawai_sort(t_list **a)
 
 void	push_all_b(t_list **a, t_list **b, int ac)
 {
-	while (ac > 4)
+	int	m;
+	int	len_a;
+
+	m = lst_mediane(*a);
+	lst_pre_tri(a, b, m);
+	len_a = lst_len(*a);
+	while (len_a > 3)
 	{
 		pb(a, b);
-		ac--;
+		len_a--;
 	}
+	(void)ac;
 }
 
 void	get_tourniquet_ready(t_list **a, t_list *good_case, int b)
@@ -94,15 +101,11 @@ void	ft_sort(t_list **a, t_list **b, int ac)
 	lst_index(kawainee);
 	mid = lst_len(*a) / 2;
 	if (kawainee->index <= mid)
-	{
-		while (*a != kawainee)
-			rra(a);
-	}
-	else
-	{
 		while (*a != kawainee)
 			ra(a);
-	}
+	else
+		while (*a != kawainee)
+			rra(a);
 }
 
 /*	printf("valeur de kawainee : %d\n", kawainee->value);
