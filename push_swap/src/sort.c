@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:25:01 by rhamini           #+#    #+#             */
-/*   Updated: 2024/05/07 16:01:34 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/06/07 13:06:35 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,18 +28,26 @@ void	kawai_sort(t_list **a)
 	}
 }
 
-void	push_all_b(t_list **a, t_list **b, int ac)
+int	push_all_b(t_list **a, t_list **b, int ac)
 {
 	int	m;
-	int	len_a;
 
 	m = lst_mediane(*a);
-	lst_pre_tri(a, b, m);
-	len_a = lst_len(*a);
-	while (len_a > 3)
+	if (lst_len(*a) > 3)
 	{
-		pb(a, b);
-		len_a--;
+		if (lst_len(*a) > 100)
+		{
+			push_median(a, b);
+			push_pre_sort(a, b, m);
+		}
+		else
+			push_pre_sort(a, b, m);
+		return (1);
+	}
+	else
+	{
+		kawai_sort(a);
+		return (0);
 	}
 	(void)ac;
 }
@@ -89,9 +97,8 @@ void	ft_sort(t_list **a, t_list **b, int ac)
 	t_list	*kawainee;
 	int		mid;
 
-	push_all_b(a, b, ac);
-	if (ac >= 4)
-		kawai_sort(a);
+	if (!push_all_b(a, b, ac))
+		return ;
 	while (*b)
 	{
 		setup(a, b);

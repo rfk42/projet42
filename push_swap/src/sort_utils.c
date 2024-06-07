@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/04 14:32:13 by rhamini           #+#    #+#             */
-/*   Updated: 2024/05/07 14:41:11 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/05/07 19:50:56 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,13 +74,11 @@ void	lst_cost(t_list **lst, t_list **lst2)
 	int		len1;
 	int		len2;
 	int		mid1;
-	int		mid2;
 
 	tmp = *lst;
 	len1 = lst_len(tmp);
 	len2 = lst_len(*lst2);
 	mid1 = len1 / 2;
-	mid2 = len2 / 2;
 	lst_cost_utils(tmp, len1, len2, mid1);
 }
 

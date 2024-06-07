@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/28 14:05:26 by rhamini           #+#    #+#             */
-/*   Updated: 2024/04/24 18:20:50 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/05/08 11:53:11 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ void	ft_putstr_error(char *s)
 	write(2, s, i);
 }
 
-/*void	ft_lstiter(t_list *lst)
+
+void	ft_lstiter(t_list *lst)
 {
 	while (lst)
 	{
@@ -77,7 +78,7 @@ void	ft_putstr_error(char *s)
 		lst = lst->next;
 	}
 }
-
+/*
 void	ft_lstiterb(t_list *lst)
 {
 	while (lst)
