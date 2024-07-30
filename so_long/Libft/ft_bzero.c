@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prints.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:48:33 by rhamini           #+#    #+#             */
-/*   Updated: 2024/06/10 21:45:39 by rhamini          ###   ########.fr       */
+/*   Created: 2023/11/12 03:10:44 by rhamini           #+#    #+#             */
+/*   Updated: 2023/11/19 21:49:20 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_prints(char *s)
+void	ft_bzero(void *s, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	if (s == NULL)
+	while (i < n)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	while (s[i])
-	{
-		write(1, &s[i], 1);
+		((char *)s)[i] = '\0';
 		i++;
 	}
-	return (i);
 }

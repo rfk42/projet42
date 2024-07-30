@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prints.c                                        :+:      :+:    :+:   */
+/*   ft_printd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:48:33 by rhamini           #+#    #+#             */
-/*   Updated: 2024/06/10 21:45:39 by rhamini          ###   ########.fr       */
+/*   Created: 2023/12/04 15:18:15 by rhamini           #+#    #+#             */
+/*   Updated: 2024/03/21 10:31:59 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_prints(char *s)
+int	ft_printd(int n)
 {
-	int	i;
+	long			nb;
+	unsigned int	i;
 
-	i = 0;
-	if (s == NULL)
+	nb = (long)n;
+	i = 1;
+	if (n < 0)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	while (s[i])
-	{
-		write(1, &s[i], 1);
+		nb = -n;
 		i++;
 	}
+	while (nb > 9)
+	{
+		nb = nb / 10;
+		i++;
+	}
+	ft_putnbr_fd(n, 1);
+	if (n == -2147483648)
+		return (11);
 	return (i);
 }

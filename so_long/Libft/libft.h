@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 17:14:25 by rhamini           #+#    #+#             */
-/*   Updated: 2024/06/10 21:46:43 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/07/30 02:27:28 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,11 +67,19 @@ int			ft_printhex(unsigned int num, const char format);
 
 typedef struct s_list
 {
-	char			*value;
+	char			*content;
 	struct s_list	*next;
 }				t_list;
 
-t_list		*ft_lstlast(t_list *tmp);
+t_list		*ft_lstlast(t_list *lst);
+void		add_cell(t_list **plist, char *buffer);
+int			list_to_len(t_list *list);
+void		list_into_string(t_list *list, char *str);
+void		free_and_new(t_list **plist, t_list *new, char **buffer);
+void		refresh(t_list **plist);
+int			newline_detector(t_list *list);
+void		file_to_list(t_list **plist, int fd);
+char		*list_to_str(t_list *list);
 char		*get_next_line(int fd);
 void		read_tmp(int fd, t_list **tmp, int *lu_ptr);
 int			newline(t_list *tmp);

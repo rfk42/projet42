@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prints.c                                        :+:      :+:    :+:   */
+/*   ft_printchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:48:33 by rhamini           #+#    #+#             */
-/*   Updated: 2024/06/10 21:45:39 by rhamini          ###   ########.fr       */
+/*   Created: 2023/12/04 14:02:03 by rhamini           #+#    #+#             */
+/*   Updated: 2024/03/21 10:29:21 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_prints(char *s)
+int	ft_printchar(char c)
 {
-	int	i;
-
-	i = 0;
-	if (s == NULL)
-	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	while (s[i])
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-	return (i);
+	write(1, &c, 1);
+	return (1);
 }

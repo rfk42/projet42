@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/19 11:35:46 by rhamini           #+#    #+#             */
-/*   Updated: 2024/03/20 14:41:40 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/06/10 21:48:25 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,6 +157,7 @@ void	clean_tmp(t_list **tmp)
 	*tmp = clean_node;
 }
 
+/*
 #include <fcntl.h>
 
 int	main(void)
@@ -176,3 +177,4 @@ int	main(void)
 	}
 	return (0);
 }
+*/

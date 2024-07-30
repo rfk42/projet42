@@ -1,31 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prints.c                                        :+:      :+:    :+:   */
+/*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:48:33 by rhamini           #+#    #+#             */
-/*   Updated: 2024/06/10 21:45:39 by rhamini          ###   ########.fr       */
+/*   Created: 2023/11/18 14:22:35 by rhamini           #+#    #+#             */
+/*   Updated: 2023/11/23 16:10:23 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_prints(char *s)
+char	*ft_strnstr(const char *s1, const char *s2, size_t n)
 {
-	int	i;
+	unsigned int	i;
+	unsigned int	j;
 
 	i = 0;
-	if (s == NULL)
+	j = 0;
+	if (s1 == 0 && n == 0)
+		return (NULL);
+	if (s2[i] == '\0')
+		return ((char *)s1);
+	while (s1[i] && (i <= n))
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	while (s[i])
-	{
-		write(1, &s[i], 1);
+		j = 0;
+		while (s2[j] == s1[i + j] && (i + j < n))
+		{
+			if (s2[j + 1] == '\0')
+				return ((char *)s1 + i);
+			j++;
+		}
 		i++;
 	}
-	return (i);
+	return (NULL);
 }

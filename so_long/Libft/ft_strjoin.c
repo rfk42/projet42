@@ -1,31 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prints.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:48:33 by rhamini           #+#    #+#             */
-/*   Updated: 2024/06/10 21:45:39 by rhamini          ###   ########.fr       */
+/*   Created: 2023/11/20 01:46:24 by rhamini           #+#    #+#             */
+/*   Updated: 2024/03/21 10:30:37 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_prints(char *s)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int	i;
+	unsigned int	i;
+	unsigned int	j;	
+	char			*s3;
 
 	i = 0;
-	if (s == NULL)
+	j = 0;
+	if (s1 == 0 || s2 == 0)
+		return (NULL);
+	s3 = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!s3)
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	while (s[i])
-	{
-		write(1, &s[i], 1);
+		s3[i] = s1[i];
 		i++;
 	}
-	return (i);
+	while (s2[j] != '\0')
+	{
+		s3[i] = s2[j];
+		j++;
+		i++;
+	}
+	s3[i] = '\0';
+	return (s3);
 }

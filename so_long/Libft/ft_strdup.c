@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prints.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:48:33 by rhamini           #+#    #+#             */
-/*   Updated: 2024/06/10 21:45:39 by rhamini          ###   ########.fr       */
+/*   Created: 2023/11/19 21:57:10 by rhamini           #+#    #+#             */
+/*   Updated: 2023/11/20 00:50:59 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_prints(char *s)
+char	*ft_strdup(const char *s)
 {
-	int	i;
+	char	*s2;
+	int		i;
 
 	i = 0;
-	if (s == NULL)
-	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
+	s2 = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!s2)
+		return (NULL);
 	while (s[i])
 	{
-		write(1, &s[i], 1);
+		s2[i] = s[i];
 		i++;
 	}
-	return (i);
+	s2[i] = '\0';
+	return (s2);
 }

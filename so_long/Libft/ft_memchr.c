@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prints.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:48:33 by rhamini           #+#    #+#             */
-/*   Updated: 2024/06/10 21:45:39 by rhamini          ###   ########.fr       */
+/*   Created: 2023/11/16 17:36:11 by rhamini           #+#    #+#             */
+/*   Updated: 2023/11/16 18:26:01 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_prints(char *s)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
+	unsigned int	i;
+	unsigned char	*s2;
+	unsigned char	c2;
 
+	s2 = (unsigned char *)s;
+	c2 = (unsigned char )c;
 	i = 0;
-	if (s == NULL)
+	while (n > 0)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	while (s[i])
-	{
-		write(1, &s[i], 1);
+		if (*(s2 + i) == c2)
+			return (s2 + i);
 		i++;
+		n--;
 	}
-	return (i);
+	return (NULL);
 }

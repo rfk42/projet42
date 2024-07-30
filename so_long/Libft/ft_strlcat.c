@@ -1,31 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prints.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:48:33 by rhamini           #+#    #+#             */
-/*   Updated: 2024/06/10 21:45:39 by rhamini          ###   ########.fr       */
+/*   Created: 2023/08/06 01:31:28 by rhamini           #+#    #+#             */
+/*   Updated: 2023/11/23 16:16:00 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_prints(char *s)
+size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	int	i;
+	unsigned int	i;
+	unsigned int	j;
 
+	j = 0;
 	i = 0;
-	if (s == NULL)
+	if (dest == 0 && size == 0)
+		return (0);
+	while (dest[j] && j < size)
+		j++;
+	while (src[i] && size && j + i < size - 1)
 	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	while (s[i])
-	{
-		write(1, &s[i], 1);
+		dest[j + i] = src[i];
 		i++;
 	}
-	return (i);
+	if (j < size)
+		dest[j + i] = '\0';
+	while (src[i])
+		i ++;
+	return (j + i);
 }

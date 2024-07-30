@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prints.c                                        :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:48:33 by rhamini           #+#    #+#             */
-/*   Updated: 2024/06/10 21:45:39 by rhamini          ###   ########.fr       */
+/*   Created: 2023/11/20 00:21:50 by rhamini           #+#    #+#             */
+/*   Updated: 2023/11/20 01:43:40 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_prints(char *s)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	int	i;
+	unsigned int	slen;
+	unsigned int	t;
+	char			*s2;
 
-	i = 0;
-	if (s == NULL)
-	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	while (s[i])
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-	return (i);
+	t = 0;
+	if (!s)
+		return (NULL);
+	slen = ft_strlen((char *)s);
+	if (start > slen)
+		return (ft_strdup(""));
+	s = s + start;
+	while (s[t] && len--)
+		t++;
+	s2 = malloc(sizeof(char) * (t + 1));
+	if (!s2)
+		return (NULL);
+	ft_strlcpy(s2, s, t + 1);
+	return (s2);
 }

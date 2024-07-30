@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_prints.c                                        :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/04 15:48:33 by rhamini           #+#    #+#             */
-/*   Updated: 2024/06/10 21:45:39 by rhamini          ###   ########.fr       */
+/*   Created: 2023/11/18 15:42:38 by rhamini           #+#    #+#             */
+/*   Updated: 2023/11/20 00:01:43 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_prints(char *s)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	int	i;
+	int				t;
+	unsigned char	*allocmem;
 
-	i = 0;
-	if (s == NULL)
-	{
-		ft_putstr_fd("(null)", 1);
-		return (6);
-	}
-	while (s[i])
-	{
-		write(1, &s[i], 1);
-		i++;
-	}
-	return (i);
+	allocmem = 0;
+	t = (nmemb * size);
+	if (size && t / size != nmemb)
+		return (NULL);
+	allocmem = malloc(t);
+	if (!allocmem)
+		return (NULL);
+	ft_bzero(allocmem, t);
+	return ((void *)allocmem);
 }
