@@ -6,11 +6,11 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 01:17:13 by rhamini           #+#    #+#             */
-/*   Updated: 2024/08/13 14:23:35 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/08/13 18:22:35 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minitalk.h"
+#include "minitalk.h"
 
 int	ft_atoi(char *str)
 {
@@ -45,6 +45,8 @@ int	ft_strlen(char *str)
 {
 	int	i;
 
+	if (!str)
+		return (0);
 	i = 0;
 	while (str[i])
 		i++;
@@ -53,30 +55,33 @@ int	ft_strlen(char *str)
 
 char	*ft_strjoin(char *s1, char const c)
 {
-	unsigned int	i;
-	char			*s3;
+	int		i;
+	int		len;
+	char	*s3;
 
 	i = 0;
-	if (s1 == 0)
-		return (NULL);
-	s3 = malloc(sizeof(char) * (ft_strlen(s1) + 2));
+	if (s1 == NULL)
+		len = 0;
+	else
+		len = ft_strlen(s1);
+	s3 = malloc(sizeof(char) * (len + 2));
 	if (!s3)
 		return (NULL);
-	while (s1[i] != '\0')
+	while (i < len)
 	{
 		s3[i] = s1[i];
 		i++;
 	}
-	s3[i] = c;
-	i++;
-	s3[i] = '\0';
-	free(s1);
+	s3[i++] = c;
+	s3[i] = 0;
+	if (s1)
+		free(s1);
 	return (s3);
 }
 
 void	ft_putstr(char *s)
 {
-	unsigned int	i;
+	int	i;
 
 	i = 0;
 	if (s == 0)

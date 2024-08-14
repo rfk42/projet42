@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 12:42:23 by rhamini           #+#    #+#             */
-/*   Updated: 2024/08/13 14:16:47 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/08/13 18:16:08 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	sig_handler_server(int signum, siginfo_t *info, void *context)
 	if (signum == SIGUSR2)
 		c = (c << 1) | 1;
 	else if (signum == SIGUSR1)
-		c = (c << 1);
+		c = c << 1;
 	if (count_bit < 7)
 		count_bit++;
 	else
@@ -58,7 +58,7 @@ int	main(void)
 	sigaction(SIGUSR1, &sa, NULL);
 	sigaction(SIGUSR2, &sa, NULL);
 	ft_putstr("PID of the server : ");
-	ft_putnbr(getegid());
+	ft_putnbr(getpid());
 	ft_putstr("\n");
 	while (1)
 		pause();

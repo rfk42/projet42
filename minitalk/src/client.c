@@ -6,7 +6,7 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/13 12:42:34 by rhamini           #+#    #+#             */
-/*   Updated: 2024/08/13 14:30:40 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/08/13 18:03:44 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,8 @@ void	send_signal(int pid, char *s)
 
 void	sig_handler_client(int signum, siginfo_t *info, void *context)
 {
-	(void)info;
 	(void)context;
+	(void)info;
 	if (signum == SIGUSR2)
 		g_led = 1;
 }
@@ -65,7 +65,7 @@ int	main(int ac, char **av)
 			ft_putstr("Empty Argument\n");
 			exit(1);
 		}
-		if (ft_atoi(av[1]) <= 0)
+		if (ft_atoi(av[1]) <= 0 || kill(ft_atoi(av[1]), 0))
 		{
 			ft_putstr("Invalid PID\n");
 			exit(1);
@@ -73,6 +73,6 @@ int	main(int ac, char **av)
 		send_signal(ft_atoi(av[1]), av[2]);
 	}
 	else
-		ft_putstr("Argument error : try ./client PID string_to_send\n");
+		ft_putstr("Argument error : try ./client *PID* *string_to_send*\n");
 	return (0);
 }
