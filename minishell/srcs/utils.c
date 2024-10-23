@@ -6,11 +6,11 @@
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/06 01:17:13 by rhamini           #+#    #+#             */
-/*   Updated: 2024/08/13 18:22:35 by rhamini          ###   ########.fr       */
+/*   Updated: 2024/08/21 18:08:35 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "minitalk.h"
+#include "minishell.h"
 
 int	ft_atoi(char *str)
 {
