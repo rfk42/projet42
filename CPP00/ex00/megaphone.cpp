@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rhamini <rhamini@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/23 17:39:29 by rhamini           #+#    #+#             */
-/*   Updated: 2024/10/23 17:39:30 by rhamini          ###   ########.fr       */
+/*   Created: 2025/02/02 23:05:57 by rhamini           #+#    #+#             */
+/*   Updated: 2025/02/09 12:54:54 by rhamini          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include <iostream>
+#include <cctype>
 
-void	parsing(char **av)
+void	ft_argupcase(char **arg)
 {
-	int			i;
-	long int	nb;
-
-	i = 1;
-	nb = 0;
-	while (av[i])
+	int i = 0, a = 1;
+	
+	while (arg[a])
 	{
-		nb = ft_long_atoi(av[i]);
-		if (!is_number(av[i]) || nb > 2147483647 || (i == 1 && nb > 200)
-			|| nb == 0)
-		{
-			printf("not a valid number");
-			exit(1);
+		i = 0;
+		while (arg[a][i])
+		{	
+			std::cout.put(islower(arg[a][i]) ? toupper(arg[a][i]) : arg[a][i]);
+			i++;
 		}
-		i++;
+		a++;
+		std::cout.put(arg[a] ? ' ' : '\n');
 	}
+}
+
+int main(int ac, char **av)
+{
+	if (ac >= 2)
+		ft_argupcase(av);
+	else
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *\n";
 }
