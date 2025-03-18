@@ -6,14 +6,17 @@ CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 PRGM_NAME = phonebook
 
-SRC = /*.cpp
+SRC = main.cpp Contact.cpp PhoneBook.cpp
 
 OBJ = $(SRC:.cpp=.o)
 
 all: $(PRGM_NAME)
 
 $(PRGM_NAME): $(OBJ)
-	$(CC) -o $(PRGM_NAME) $(SRC) $(CFLAGS) 
+	$(CC) $(CFLAGS) $(OBJ) -o $(PRGM_NAME)
+
+%.o: %.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)
